@@ -1,0 +1,87 @@
+.product-wrap {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    margin-top: 60px;
+}
+
+.product-content {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #fff;
+    background: #fff;
+    /*flex: 1;*/
+}
+
+.product-content .checkbox-content {
+    position: relative;
+    width: 22px;
+}
+
+.product-content .name {
+    padding-left: 10px;
+}
+
+.product-content .product-item {
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*left*/
+
+.product-wrap input[type=checkbox] {
+    visibility: hidden;
+}
+
+.checkbox-content .check-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .1s;
+    z-index: 0;
+}
+
+.check-bg.active {
+    background: #975ec9;
+}
+
+.checkbox-content .check-bg:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 9px;
+    height: 5px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+
+.controller .num {
+    padding: 0 12px;
+}
+
+.controller .circle {
+    width: 22px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.circle.active {
+    background: #975ec9;
+}
+

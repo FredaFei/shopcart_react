@@ -1,0 +1,55 @@
+.home-content{
+    margin-top: 40px;
+}
+/*.home-content .form-content{
+    padding: 0 10px;
+}*/
+.home-content .title{
+    padding: 0 10px;
+    line-height: 46px;
+    font-size: 16px;
+    color: #975ec9;
+    font-weight: normal;
+}
+.home-content .form-list{
+    background: #fff;
+}
+.home-content .form-item{
+    padding: 0 10px;
+    line-height: 46px;
+    border-bottom: 1px solid #eee;
+}
+.home-content .form-item .name{
+    font-size: 14px;
+    color: #333;
+    margin-right: 6px;
+}
+.home-content .form-cell .name{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 40px;
+    background: #fff;
+}
+.home-content .form-cell .file{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 0;
+}
+.home-wrap .foot{
+    margin-top: 30px;
+    text-align: center;
+}
+.btn{
+    width: 94%;
+    line-height: 40px;
+    color: #fff;
+    font-size: 15px;
+    background: #975ec9;
+    border-radius: 4px;
+}

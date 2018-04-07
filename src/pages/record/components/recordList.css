@@ -1,0 +1,34 @@
+.record-list{
+    margin-top: 10px;
+    background: #fff;
+}
+.record-list .record-item{
+    
+}
+.record-list .record-item-head{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.record-list .record-item-head .time{
+    color: #999;
+}
+.record-list .record-item-head .status{
+    color: red;
+    text-align: right;
+}
+.record-item-content{
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+.record-item-content>div{
+    line-height: 1.8;
+}
+.record-item-foot{
+    padding: 10px;
+    font-size: 14px;
+}
