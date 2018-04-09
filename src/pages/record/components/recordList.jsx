@@ -4,11 +4,8 @@ import Request from 'common/js/request/request'
 import './recordList.css'
 
 class RecordList extends Component{
-    constructor(){
-        super(...arguments)
-        this.state = {
-            recordData: []
-        }
+    state = {
+        recordData: []
     }
     getRecord = async type=>{
         try{

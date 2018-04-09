@@ -5,29 +5,48 @@ import * as actions from '../action.js'
 
 import './foot.css'
 
-class Foot extends Component{
-    constructor(){
-        super(...arguments)
-        this.state = {
-            selectedAll: false
-        }
+class ProductFoot extends Component{
+    state = {
+        selectedAll: false,
+        optionsCheckedList: []
     }
-    handleSelectedAll = ()=>{
-        // this.setState(prevState=>({
-        //     selectedAll: !prevState.selectedAll
-        // }))
+    componentWillReceiveProps(nextProps){
+        let {productData} = nextProps
+        let checkedList = [...productData]
+        checkedList = checkedList.filter(data=>{
+            return data.selectStatus
+        })
+        this.setState({
+            selectedAll: productData.length===checkedList.length,
+        })
+        this.setState({
+            optionsCheckedList: checkedList
+        })
+    }
+    handleSelectedAll = (e)=>{
         this.props.onSelectedAll()
+        let {productData} = this.props
+        this.setState({
+            selectedAll: e.target.checked,
+            optionsCheckedList: e.target.checked ? [...productData] : [],
+        });
     }
     handleConfirmProduct = ()=>{
         console.log('selected: ')
+        // alert(this.state.optionsCheckedList)
     }
     render(){
-        let {selectedAll} = this.props
+        let {selectedAll} = this.state
+        let {productData} = this.props
+        let cls = selectedAll ? 'active' : ''
         return(
             <div className="product-footer">
                 <div className="toggle-all">
-                    <label className={`${selectedAll?'active':''}`} >
-                        <input type="checkbox" defaultChecked="false" onClick={this.handleSelectedAll}/>
+                    <label className={cls} >
+                        <input type="checkbox" 
+                            checked={selectedAll} 
+                            onChange={this.handleSelectedAll}
+                        />
                     </label>
                     <span>全选</span>
                 </div>
@@ -43,4 +62,4 @@ const mapDispatchToProps = (dispatch,ownProps)=>{
     }
 }
 
-export default connect(null, mapDispatchToProps)(Foot)
+export default connect(null, mapDispatchToProps)(ProductFoot)

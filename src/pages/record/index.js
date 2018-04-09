@@ -5,11 +5,8 @@ import RecordList from './components/recordList.jsx'
 import './index.css'
 
 class Record extends Component{
-    constructor(){
-        super(...arguments)
-        this.state = {
-            flagBarPos: '12%'
-        }
+    state = {
+        flagBarPos: '12%'
     }
     componentDidMount(){
     }

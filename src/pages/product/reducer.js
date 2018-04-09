@@ -1,10 +1,9 @@
 import * as pro from './actionTypes.js'
 const defaultState = {
-    selectedAll: false,
     productData: []
 }
 export const productData = (state=defaultState, action)=>{
-    let {productData, selectedAll} = state
+    let {productData} = state
     switch(action.type){
         case pro.GETPRODUCTION:
             return {...state, productData: [...action.productList] }
@@ -25,14 +24,12 @@ export const productData = (state=defaultState, action)=>{
             }
         case pro.SELECTALL:
             let isAll = productData.every(item=>item.selectStatus)
-            console.log(selectedAll)
             return {
                 ...state,
                 productData: productData.map(item=>({
                     ...item,
                     selectStatus: !isAll
-                })), 
-                selectedAll: !isAll
+                }))
             }    
         case pro.CLEARSELECTED:
             return state

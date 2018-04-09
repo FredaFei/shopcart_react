@@ -5,10 +5,6 @@ import PublicHeader from 'components/header/index.js'
 // import Request from '../../common/js/request/request'
 
 class Home extends Component{
-    constructor(){
-        super(...arguments)
-        this.state = {}
-    }
     componentDidMount(){
         // let data = {name: 'uu',telphone: 13600000001}
         // Request.helpPersonal(data).then(res=>{

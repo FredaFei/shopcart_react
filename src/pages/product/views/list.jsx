@@ -24,3 +24,4 @@ ProductList.propTypes = {
 }
 
 export default ProductList
+

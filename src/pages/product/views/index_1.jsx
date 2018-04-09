@@ -5,32 +5,30 @@ import './index.css'
 import {connect} from 'react-redux'
 import * as actions from '../action.js'
 import ProductList from './list.jsx'
-import ProductFoot from './foot.jsx'
+import Foot from './foot.jsx'
+import {FilterTypes} from '../constants.js'
 
 class Product extends Component{
     static propTypes = {
         productData: PropTypes.array.isRequired,
         onGetProductList: PropTypes.func.isRequired
     }
+    constructor(){
+        super(...arguments)
+        this.state = {
+            selectedAll: false
+        }
+    }
     componentDidMount(){
-        if(this.props.productData.length === 0){
+        // if(this.props.productData.length === 0){
+        // }
             this.props.onGetProductList()
-        }
     }
-    handleDecrease = (item)=>{
-        let {id, selectNum} = item
-        if(selectNum === 0){
-            return
-        }
-        this.props.onEditProduct(id,selectNum-1)
-    }
-    handleAdd = (item)=>{
-        let {id, selectNum} = item
-        this.props.onEditProduct(id,selectNum+1)
-    }
-    handleToggle = (item)=>{
-        this.props.onToggleProduct(item.id)
-        
+    xx=()=>{
+        console.log(this.state.selectedAll)
+        this.setState(prevState=>({
+            selectedAll: !prevState.selectedAll
+        }))
     }
     render(){
         let {productData} = this.props
@@ -38,9 +36,11 @@ class Product extends Component{
             <div className="product-wrap">
                 <PublicHeader title="首页" confirm/>
                 <main className="product-content">
-                   <ProductList productData={productData} />
+                    <ProductList productData={productData} />
                 </main>
-                <ProductFoot productData={productData} />
+                <Foot productData={productData} 
+                selectedAll={this.state.selectedAll}
+                onChangeSelectedAll={this.xx} />
             </div>
         )
 
@@ -55,8 +55,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch,ownProps)=>{
     return {
         onGetProductList: ()=>dispatch(actions.getProductList()),
-        onToggleProduct: (id)=>dispatch(actions.toggleProduct(id)),
-        onEditProduct: (id,selectNum)=>dispatch(actions.editProduct(id,selectNum))
+        onSelectedAll: ()=>dispatch(actions.selectAll()),
     }
 }
 

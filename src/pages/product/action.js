@@ -8,7 +8,7 @@ export const getProductList = ()=>{
             result = result.data.productList
             result.map(item=>{
                 item.selectStatus = false;
-                item.selectNum = 0;
+                item.selectNum = 1;
                 return item
             })
             dispatch({
